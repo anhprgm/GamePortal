@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Runner Mke A Cake</title>
+  <link rel="dns-prefetch" href="//pagead2.googlesyndication.com">
+  <link rel="dns-prefetch" href="//www.googletagmanager.com">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="keywords" content="Adventure Games, Arcade Games, Girls Games, Shooting Games, Racing Games">
+  <meta name="description"
+    content="In Runner Make A Cake, race against time to whip up delicious cakes! Navigate through challenging obstacle courses, collect ingredients, and avoid kitchen mishaps. With quick reflexes and perfect timing, can you become the ultimate cake-making champion?">
+  <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <style>
+    * {
+      margin: 0;
+      padding: 0
+    }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      background-color: #000
+    }
+
+    @keyframes rotate {
+      from {
+        transform: rotate(0deg)
+      }
+
+      to {
+        transform: rotate(360deg)
+      }
+    }
+  </style>
+  <style>
+    #game_frame {
+      margin: auto;
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+
+</head>
+
+<body>
+
+
+  <div id="game_container">
+    <iframe id='game_frame' webkitallowfullscreen='true' mozallowfullscreen='true' allowfullscreen='true'
+      webkit-playsinline='true' scrolling='no' seamless frameborder='0' style='display:block;overflow:hidden;'>
+    </iframe>
+  </div>
+
+  <script>
+    const gameContainer = document.querySelector('#game_container');
+    const gameFrame = document.querySelector('#game_frame');
+    gameContainer.style.height = window.innerHeight + 'px';
+
+
+    const decipher = salt => {
+      const textToChars = text => text.split('').map(c => c.charCodeAt(0));
+      const applySaltToChar = code => textToChars(salt).reduce((a, b) => a ^ b, code);
+      return encoded => encoded.match(/.{1,2}/g)
+        .map(hex => parseInt(hex, 16))
+        .map(applySaltToChar)
+        .map(charCode => String.fromCharCode(charCode))
+        .join('');
+    }
+
+
+    function getUrlParameter(name) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(name);
+    }
+
+    const data = getUrlParameter('game');
+    const myDecipher = decipher('12345678')
+    const url = myDecipher(data);
+    gameFrame.setAttribute('data-src', url);
+
+
+    function showOpenAd(complete) {
+      complete && complete();
+    }
+    showOpenAd(() => {
+      gameFrame.setAttribute('src', gameFrame.getAttribute('data-src'));
+    });
+
+    window.addEventListener('resize', function () {
+      gameContainer.style.height = window.innerHeight + 'px';
+    })
+
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,99 @@
+/* General reset and styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #1a1a1a;
+    color: #f2f2f2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Header */
+header h1 {
+    font-size: 2rem;
+    color: #f2f2f2;
+    margin-bottom: 20px;
+}
+
+/* Search bar */
+.search-bar {
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.search-bar input {
+    width: 80%;
+    padding: 10px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+}
+
+/* Game grid */
+.game-grid {
+    display: grid;
+    gap: 10px;
+    width: 100%;
+}
+
+/* Landscape mode: Max 5 items per row */
+@media (orientation: landscape) {
+    .game-grid {
+        grid-template-columns: repeat(5, 1fr); /* Max 5 items per row */
+        max-width: 90%;
+    }
+}
+
+/* Portrait mode: Max 2 items per row */
+@media (orientation: portrait) {
+    .game-grid {
+        grid-template-columns: repeat(2, 1fr); /* Max 2 items per row */
+        max-width: 100%;
+    }
+}
+
+/* Game cards */
+.game-card {
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.2s;
+    padding: 10px;
+}
+
+.image-container {
+    width: 100%;
+    position: relative;
+    padding-top: 100%; /* 1:1 aspect ratio */
+    overflow: hidden;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.image-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.game-card p {
+    color: #ffffff;
+    font-size: 1rem;
+    margin-top: 5px;
+}
+
+.game-card:hover {
+    transform: scale(1.05);
+}
