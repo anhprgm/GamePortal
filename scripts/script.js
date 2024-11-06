@@ -18,7 +18,7 @@ class Item {
     }
 }
 
-fetch('data/data.json')
+fetch('https://raw.githubusercontent.com/anhprgm/GamePortal/refs/heads/main/data/data.json')
     .then(response => response.json()) 
     .then(data => {
         parseGameData(data);
