@@ -18,7 +18,7 @@ class Item {
     }
 }
 
-fetch('https://raw.githubusercontent.com/anhprgm/GamePortal/refs/heads/main/data/data.json')
+fetch('data/games.json')
     .then(response => response.json()) 
     .then(data => {
         parseGameData(data);
@@ -50,7 +50,7 @@ function renderItems(filteredItems) {
         `;
         gameCard.addEventListener('click', () => {
             handleClick(item.name);
-            window.open(`/play/play.html?game=${encrypt(item.iframelink)}`, '_self');
+            window.open(`play/play.html?game=${encrypt(item.iframelink)}`, '_self');
         });
         gameGrid.appendChild(gameCard);
     });
